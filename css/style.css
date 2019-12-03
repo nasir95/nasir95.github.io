@@ -11,9 +11,45 @@
 
   #map {
     height: 100%;
+    width: 50%;
+    margin: 0 auto;
   }
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+  }
+
+  .row{
+      display: flex;
+
+  }
+
+  .container{
+    display: flex;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 16px;
+    color: white;
+    flex-direction: column;
+    position: absolute;
+    left: 2%;
+    width: 250px;
+    height: 300px;
+    top: 40%;
+    border: 3px solid green;
+    text-align: left;
+  }
+
+  .details{
+    display: flex;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 20px;
+    color: white;
+    flex-direction: column;
+    position: absolute;
+    left: 2%;
+    width: 250px;
+    height: 300px;
+    top: 31%;
+    text-align: center;
   }

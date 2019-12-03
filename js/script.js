@@ -19,18 +19,48 @@ let complaints, input, borough;
 
 /********** Cached Element Reference *******/
 //Elements I interact with
-const $complaintsListElement = $('#complaints');
-const $inputElement = $('input');
+const $streetEL = $('.street');
+const $typeEl = $('.type');
+const $damageEl = $('.damage');
+const $injuredEl = $('.injured');
+const $speedEl = $('.speed');
+const $causeEl = $('.cause');
+const $weatherEl = $('.weather');
 
 
 // Process
+
+// Google Maps 
+var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 41.881832, lng: -87.623177},
+          zoom: 10.5
+        });
+        
+      }
+      // add markers
+      function addMarker(coords){
+        var marker = new google.maps.Marker({
+                position: coords,
+                map:map,
+                icon: "http://maps.google.com/mapfiles/kml/pal3/icon39.png",
+                
+            });
+
+            marker.addListener('click', function(evt) {
+                console.log(evt);
+                getAPIData()
+              });
+
+}
+
 
 
 /********** Event Listeners *******/
 // What user will interact with
 // Call funtions from below
 
-$('#controls').on('click', 'button', handleClick);
 
 
 /********** Functions **********/
@@ -38,33 +68,27 @@ $('#controls').on('click', 'button', handleClick);
 // Values set of state variables
 // Generate UI components
 
-function handleClick(){
-    borough = this.dataset.id;
-    input = $inputElement.val() || 10;
-    getAPIData();
-}
 
 function getAPIData() {
     const response = $.ajax({
         url: `${URL_ENDPOINT}`,
         data: {
-            "$limit": input
+            "$limit": 10
         }
     });
 
     response.then(function(data){
         console.log(data);
+        initMap()
+        for(let i = 0; i <= data.length; i++){
+            data[i];
+            addMarker({lat: data[i].location.coordinates[1],lng: data[i].location.coordinates[0]});
+            $streetEL.html(data[i].street_name);
+        }
     })
 }
 
 // OUTPUT
 // transfer the state of the APP to the DOM
 
-
-var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 41.881832, lng: -87.623177},
-          zoom: 13
-        });
-      }
+getAPIData()
