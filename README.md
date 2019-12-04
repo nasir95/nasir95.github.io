@@ -8,3 +8,4 @@ This app will show information about crashes in Chicago.
 - JavaScript
 - Materialize
 - API - https://data.cityofchicago.org/resource/85ca-t3if.json
+- Wireframe - ![App](./app-wireframe.png)

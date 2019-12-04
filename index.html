@@ -23,33 +23,25 @@
 <nav>
   <div class="nav-wrapper #757575 grey darken-1">
     <a href="#!" class="brand-logo">CHICAGO CRASHES</a>
-    <ul class="right hide-on-med-and-down">
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
   </div>
 </nav>
 <h2 class="details">DETAILS</h2>
 <dl class="container">
-    <dt>Street - </dt>
-    <dd class="street" ></dd>
-    <dt>Crash Type - </dt>
-    <dd class="type"></dd>
-    <dt>Damage $ - </dt>
-    <dd class="damage"></dd>
-    <dt>Injured -</dt>
-    <dd class="injured"></dd>
-    <dt>Speed - </dt>
-    <dd class="speed"></dd>
-    <dt>Cause -</dt>
-    <dd class="cause"></dd>
-    <dt>Weather -</dt>
-    <dd class="weather"></dd>
+    <form>
+        <input type="text" placeholder="# of crashes">
+    </form>
+    <dt class='street delete'>Street</dt>
+    <dt class='crash delete'>Crash Type</dt>
+    <dt class='cost delete'>Damage Cost</dt>
+    <dt class='injured delete'>Injured</dt>
+    <dt class='speed delete'>Speed Limit Posted</dt>
+    <dt class='cause delete'>Cause</dt>
+    <dt class='weather delete'>Weather</dt>
 </dl>    
     <!-- Google maps-->
     <div id="map"></div>
     
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQRCMYSgbbKjPrFmdzV3BXPKZ4caL34xA&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQRCMYSgbbKjPrFmdzV3BXPKZ4caL34xA"
     async defer></script>
     
 </body>
